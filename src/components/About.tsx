@@ -4,9 +4,9 @@ import RetroCard from './RetroCard';
 
 const About = () => {
   return (
-    <section id="about" className="py-16 retro-grid">
+    <section id="about" className="py-10 retro-grid">
       <div className="retro-container">
-        <h2 className="text-3xl font-retro text-white text-center mb-12">About Me</h2>
+        <h2 className="section-heading">About Me</h2>
         
         <RetroCard glowBorder className="max-w-4xl mx-auto">
           <p className="text-gray-300 mb-4">

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -71,12 +70,19 @@
 }
 
 @layer components {
+  .section-heading {
+    @apply text-2xl md:text-3xl font-retro text-white text-center mb-8 relative inline-flex px-4 py-2 mx-auto;
+    background: linear-gradient(90deg, transparent, rgba(86, 86, 233, 0.2), transparent);
+    border-bottom: 2px solid theme('colors.retro.purple');
+    letter-spacing: 1px;
+  }
+
   .retro-gradient {
     @apply bg-gradient-to-br from-retro-dark via-background to-retro-dark;
   }
   
   .retro-container {
-    @apply container mx-auto px-4 py-8 md:py-12 relative;
+    @apply container mx-auto px-4 py-4 md:py-6 relative flex flex-col items-center;
   }
   
   .retro-grid {

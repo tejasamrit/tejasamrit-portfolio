@@ -5,9 +5,9 @@ import { Mail, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-16 retro-grid">
+    <section id="contact" className="py-10 retro-grid">
       <div className="retro-container">
-        <h2 className="retro-heading text-center mb-12">Get In Touch</h2>
+        <h2 className="section-heading">Get In Touch</h2>
         
         <div className="max-w-3xl mx-auto">
           <RetroCard glowBorder>
