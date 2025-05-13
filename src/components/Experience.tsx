@@ -32,7 +32,7 @@ const Experience = () => {
   const experiences: Experience[] = [
     {
       title: "Software Developer Intern",
-      company: "Demo Company",
+      company: "Test Yantra Software Solutions",
       location: "Remote",
       period: "Jan 2025 – Apr 2025",
       description: [

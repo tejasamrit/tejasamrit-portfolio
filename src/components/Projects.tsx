@@ -52,7 +52,7 @@ const Projects = () => {
       description: "A full-stack Airbnb clone with features like property listings, booking system, and user authentication. Implements responsive design and modern UI components.",
       techStack: ["React", "Node.js", "MongoDB", "Express", "REST API"],
       link: "https://github.com/tejasamrit/Airbnb_Clone",
-      imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+      imageUrl: "https://images.unsplash.com/photo-1721322800607-8c38375eef04"
     },
     {
       title: "Exercise Finder App",
