@@ -27,7 +27,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-16 retro-grid">
       <div className="retro-container">
-        <h2 className="retro-heading text-center mb-12">Skills & Expertise</h2>
+        <h2 className="text-3xl font-retro text-white text-center mb-12">Skills & Expertise</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <RetroCard>

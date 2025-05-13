@@ -67,7 +67,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-16 retro-grid">
       <div className="retro-container">
-        <h2 className="retro-heading text-center mb-12">Experience</h2>
+        <h2 className="text-3xl font-retro text-white text-center mb-12">Experience</h2>
         
         <div className="max-w-3xl mx-auto">
           {experiences.map((experience, index) => (

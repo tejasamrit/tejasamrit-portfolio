@@ -42,6 +42,7 @@
   * {
     @apply border-border;
     scroll-behavior: smooth;
+    cursor: none !important;
   }
 
   body {
@@ -91,7 +92,7 @@
   }
   
   .retro-heading {
-    @apply font-retro text-xl md:text-2xl lg:text-3xl my-4 text-transparent bg-clip-text bg-gradient-to-r from-retro-purple to-retro-pink animate-pulse-glow tracking-wider;
+    @apply font-retro text-xl md:text-2xl lg:text-3xl my-4 text-white tracking-wider;
   }
 
   .retro-subheading {
@@ -118,7 +119,76 @@
     image-rendering: pixelated;
   }
   
-  /* New retro styles */
+  /* Custom cursor styles */
+  .custom-cursor {
+    @apply fixed pointer-events-none z-[9999] will-change-transform transition-opacity duration-200;
+  }
+
+  .cursor-dot {
+    @apply w-3 h-3 rounded-full bg-retro-pink;
+    transition: width 200ms ease-out, height 200ms ease-out, transform 200ms ease-out;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-ring {
+    @apply w-8 h-8 border-2 border-retro-purple rounded-full;
+    transition: width 100ms ease-out, height 100ms ease-out, top 100ms ease-out, left 100ms ease-out;
+    transform: translate(-50%, -50%);
+    animation: cursor-animate 6s linear infinite;
+  }
+
+  .cursor-hovered {
+    @apply border-retro-pink;
+  }
+
+  .cursor-hovered.cursor-dot {
+    @apply scale-150 bg-retro-pink;
+    animation: cursor-pulse 1s infinite alternate;
+  }
+
+  .cursor-hovered.cursor-ring {
+    @apply scale-150;
+    animation: cursor-animate 3s linear infinite;
+  }
+
+  .cursor-clicked {
+    @apply scale-75;
+    animation: cursor-click 350ms ease-out 1;
+  }
+
+  /* Loading bar animation */
+  .loading-bar {
+    width: 100%;
+    animation: loading 2s ease-in-out infinite;
+  }
+
+  /* Typewriter effect in loader */
+  .typewriter span {
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 0.5s steps(40, end);
+    white-space: nowrap;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .typewriter span:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .typewriter span:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  .typewriter span:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+
+  .typewriter span:nth-child(4) {
+    animation-delay: 2s;
+  }
+  
+  /* Retro styles */
   .retro-terminal {
     position: relative;
     box-shadow: 0 0 10px rgba(86, 86, 233, 0.5), 0 0 20px rgba(255, 25, 155, 0.3);
@@ -161,8 +231,8 @@
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from { width: 0; opacity: 0; }
+  to { width: 100%; opacity: 1; }
 }
 
 @keyframes blink-caret {
@@ -209,5 +279,59 @@
   }
   100% {
     clip: rect(60px, 9999px, 76px, 0);
+  }
+}
+
+@keyframes cursor-animate {
+  0% {
+    border-radius: 50%;
+  }
+  25% {
+    border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+  }
+  50% {
+    border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+  }
+  75% {
+    border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+  }
+  100% {
+    border-radius: 50%;
+  }
+}
+
+@keyframes cursor-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes cursor-click {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
   }
 }
