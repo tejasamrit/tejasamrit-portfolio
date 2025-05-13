@@ -117,6 +117,27 @@ export default {
 				'scanline': {
 					'0%': { transform: 'translateY(-100%)' },
 					'100%': { transform: 'translateY(100%)' }
+				},
+				'flicker': {
+					'0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
+						opacity: '0.99',
+						filter: 'drop-shadow(0 0 1px rgba(86, 86, 233, 0.5)) drop-shadow(0 0 1px rgba(255, 25, 155, 0.3))'
+					},
+					'20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
+						opacity: '0.4',
+						filter: 'none'
+					}
+				},
+				'vhs-flicker': {
+					'0%': {
+					  opacity: '0.8',
+					},
+					'50%': {
+					  opacity: '1',
+					},
+					'100%': {
+					  opacity: '0.8',
+					},
 				}
 			},
 			animation: {
@@ -125,7 +146,9 @@ export default {
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'fade-in': 'fade-in 0.5s ease-out',
 				'retro-glitch': 'retro-glitch 8s ease infinite',
-				'scanline': 'scanline 8s linear infinite'
+				'scanline': 'scanline 8s linear infinite',
+				'flicker': 'flicker 0.15s infinite',
+				'vhs-flicker': 'vhs-flicker 2s infinite'
 			},
 			fontFamily: {
 				'retro': ['Press Start 2P', 'ui-monospace', 'monospace'],
