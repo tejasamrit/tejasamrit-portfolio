@@ -45,44 +45,20 @@ const Cursor = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // Re-register event listeners when the DOM changes
-    const handleLinkHoverIn = () => setLinkHovered(true);
-    const handleLinkHoverOut = () => setLinkHovered(false);
-    
-    const links = document.querySelectorAll('a, button');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', handleLinkHoverIn);
-      link.addEventListener('mouseleave', handleLinkHoverOut);
-    });
-
-    return () => {
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', handleLinkHoverIn);
-        link.removeEventListener('mouseleave', handleLinkHoverOut);
-      });
-    };
-  }, [position]); // This will re-run when position changes, which happens when mouse moves
-
-  const cursorClasses = `custom-cursor ${hidden ? 'opacity-0' : 'opacity-100'} ${clicked ? 'cursor-clicked' : ''} ${linkHovered ? 'cursor-hovered' : ''}`;
+  // Simpler cursor styles
+  const cursorStyle = {
+    left: `${position.x}px`,
+    top: `${position.y}px`,
+    opacity: hidden ? 0 : 1,
+    transform: `scale(${clicked ? 0.8 : linkHovered ? 1.5 : 1})`,
+    transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
+  };
 
   return (
-    <>
-      <div 
-        className={`${cursorClasses} cursor-dot`}
-        style={{ 
-          left: `${position.x}px`, 
-          top: `${position.y}px` 
-        }}
-      />
-      <div 
-        className={`${cursorClasses} cursor-ring`}
-        style={{ 
-          left: `${position.x}px`, 
-          top: `${position.y}px` 
-        }}
-      />
-    </>
+    <div
+      className="fixed pointer-events-none z-[9999] w-6 h-6 rounded-full border-2 border-retro-pink mix-blend-difference"
+      style={cursorStyle}
+    />
   );
 };
 
