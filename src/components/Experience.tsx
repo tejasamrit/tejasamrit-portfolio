@@ -32,14 +32,14 @@ const Experience = () => {
   const experiences: Experience[] = [
     {
       title: "Software Developer Intern",
-      company: "Test Yantra Software Solutions",
+      company: "WILDREX Solutions",
       location: "Remote",
       period: "Jan 2025 – Apr 2025",
       description: [
-        "Collaborated with development team on full-stack application features",
-        "Implemented responsive UI components using React and Tailwind CSS",
-        "Contributed to RESTful API development with Node.js and Express",
-        "Participated in code reviews and agile development processes"
+        "Develop and maintain front-end features",
+        "Work closely with UI/UX designers",
+        "Participate in code reviews",
+        "Contributed to RESTful API development with Node.js and Express"
       ]
     },
     {

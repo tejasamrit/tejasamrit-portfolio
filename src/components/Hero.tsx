@@ -10,9 +10,13 @@ const Hero = () => {
           <div className="mb-6 md:mb-0 md:mr-8 relative">
             <div className="retro-profile-frame">
               <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-retro-purple animate-pulse">
-                <AvatarImage src="/lovable-uploads/1af7e5d9-beca-49bc-ab92-6957e043b739.png" alt="Tejas Amrit" className="object-cover" />
+                <AvatarImage src="/lovable-uploads/cf203e7c-779a-4022-a3ce-593c6bfc6f23.png" alt="Tejas Amrit" className="object-cover" />
                 <AvatarFallback className="bg-retro-dark text-retro-pink text-xl">TA</AvatarFallback>
               </Avatar>
+              
+              {/* Simple hexagonal outline styling */}
+              <div className="absolute inset-0 w-full h-full transform rotate-45 border-2 border-retro-pink opacity-60"></div>
+              <div className="absolute inset-0 w-full h-full transform -rotate-45 border-2 border-retro-purple opacity-60"></div>
             </div>
           </div>
           
