@@ -3,38 +3,72 @@ import React, { useEffect, useState } from 'react';
 
 const Loader = () => {
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
   
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    let progressInterval: NodeJS.Timeout;
     
-    return () => clearTimeout(timer);
-  }, []);
+    if (loading) {
+      progressInterval = setInterval(() => {
+        setProgress(prev => {
+          const newProgress = prev + Math.floor(Math.random() * 10);
+          return newProgress >= 100 ? 100 : newProgress;
+        });
+      }, 150);
+    }
+    
+    const timer = setTimeout(() => {
+      clearInterval(progressInterval);
+      setLoading(false);
+    }, 2500);
+    
+    return () => {
+      clearTimeout(timer);
+      if (progressInterval) clearInterval(progressInterval);
+    };
+  }, [loading]);
   
   if (!loading) return null;
   
   return (
     <div className="fixed inset-0 bg-background z-50 flex flex-col items-center justify-center">
-      <div className="retro-terminal p-8 bg-retro-dark border-2 border-retro-purple">
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+      <div className="retro-loader">
+        <div className="retro-loader-content relative">
+          <div className="retro-loader-avatar mb-6">
+            <div className="w-24 h-24 mx-auto rounded-full border-4 border-retro-pink overflow-hidden">
+              <img 
+                src="/lovable-uploads/fc485850-110e-43d4-a021-3f1927ed1e0a.png" 
+                alt="Tejas Amrit" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-          <div className="text-xs text-retro-pink font-retro">SYSTEM LOADING</div>
-        </div>
-        
-        <div className="w-64 h-2 bg-gray-700 rounded overflow-hidden mb-4">
-          <div className="h-full bg-gradient-to-r from-retro-purple to-retro-pink animate-[pulse_2s_ease-in-out_infinite] loading-bar"></div>
-        </div>
-        
-        <div className="font-mono text-sm text-green-400 typewriter">
-          <span>$ Initializing system components...</span><br/>
-          <span>$ Loading profile data...</span><br/>
-          <span>$ Rendering retro interface...</span><br/>
-          <span className="text-retro-pink">$ READY_</span>
+          
+          <div className="text-center mb-4">
+            <h2 className="text-xl font-retro text-retro-pink">System Boot</h2>
+            <p className="text-sm text-gray-400 mt-1">Initializing Portfolio</p>
+          </div>
+          
+          <div className="w-64 h-4 bg-gray-800 border border-retro-purple rounded-sm overflow-hidden mb-2">
+            <div 
+              className="h-full bg-gradient-to-r from-retro-purple to-retro-pink transition-all duration-150 ease-in-out"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+          
+          <div className="text-right text-xs text-retro-pink font-mono">
+            {progress}%
+          </div>
+          
+          <div className="mt-4 font-mono text-xs text-green-400 max-w-xs mx-auto">
+            {progress < 30 && <div>$ Initializing system components...</div>}
+            {progress >= 30 && progress < 60 && <div>$ Loading profile data...</div>}
+            {progress >= 60 && progress < 90 && <div>$ Rendering interface...</div>}
+            {progress >= 90 && <div className="text-retro-pink">$ READY_</div>}
+          </div>
+          
+          <div className="retro-loader-scanlines"></div>
+          <div className="retro-loader-flicker"></div>
         </div>
       </div>
     </div>

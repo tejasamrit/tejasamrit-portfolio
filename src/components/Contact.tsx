@@ -19,12 +19,12 @@ const Contact = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <a 
-                href="mailto:amritpravelli5@gmail.com" 
+                href="mailto:tejasamrit47@gmail.com" 
                 className="flex flex-col items-center p-4 bg-retro-purple/10 rounded-lg hover:bg-retro-pink/10 transition-colors duration-300"
               >
                 <Mail className="text-retro-pink mb-2" size={32} />
                 <span className="text-white font-medium">Email</span>
-                <span className="text-gray-400 text-sm mt-1">amritpravelli5@gmail.com</span>
+                <span className="text-gray-400 text-sm mt-1">tejasamrit47@gmail.com</span>
               </a>
               
               <a 

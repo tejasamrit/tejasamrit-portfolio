@@ -85,6 +85,49 @@
     @apply container mx-auto px-4 py-4 md:py-6 relative flex flex-col items-center;
   }
   
+  /* Profile frame in Hero section */
+  .retro-profile-frame {
+    @apply relative inline-block;
+  }
+  
+  .retro-profile-frame::before {
+    content: '';
+    @apply absolute -top-2 -left-2 -right-2 -bottom-2 border-2 border-retro-pink rounded-full z-[-1] animate-pulse;
+  }
+  
+  .retro-profile-frame::after {
+    content: '';
+    @apply absolute -top-4 -left-4 -right-4 -bottom-4 border-2 border-retro-purple rounded-full z-[-1] animate-retro-glitch;
+  }
+  
+  /* New loader styles */
+  .retro-loader {
+    @apply relative rounded-lg overflow-hidden bg-retro-dark/90 border-4 border-retro-purple p-6;
+    box-shadow: 0 0 30px rgba(86, 86, 233, 0.6), 0 0 50px rgba(255, 25, 155, 0.4);
+  }
+  
+  .retro-loader-content {
+    @apply relative z-10;
+  }
+  
+  .retro-loader-scanlines {
+    @apply absolute inset-0 pointer-events-none overflow-hidden;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 5;
+  }
+  
+  .retro-loader-flicker {
+    @apply absolute inset-0 pointer-events-none overflow-hidden;
+    animation: flicker 0.15s infinite alternate;
+    z-index: 6;
+    opacity: 0.3;
+  }
+  
   .retro-grid {
     @apply relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[radial-gradient(rgba(86,86,233,0.1)_1px,transparent_1px)] before:bg-[length:20px_20px] before:pointer-events-none before:z-0;
   }
@@ -339,5 +382,28 @@
   }
   100% {
     width: 0%;
+  }
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 0.99;
+    filter: drop-shadow(0 0 1px rgba(86, 86, 233, 0.5)) drop-shadow(0 0 1px rgba(255, 25, 155, 0.3));
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+    filter: none;
+  }
+}
+
+@keyframes vhs-flicker {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
   }
 }

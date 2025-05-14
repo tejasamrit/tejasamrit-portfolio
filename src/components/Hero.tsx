@@ -1,12 +1,22 @@
 
 import React, { useEffect, useRef } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen retro-grid flex items-center pt-16">
       <div className="retro-container">
-        <div className="relative z-10">
-          <div className="animate-fade-in">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8">
+          <div className="mb-6 md:mb-0 md:mr-8 relative">
+            <div className="retro-profile-frame">
+              <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-retro-purple animate-pulse">
+                <AvatarImage src="/lovable-uploads/1af7e5d9-beca-49bc-ab92-6957e043b739.png" alt="Tejas Amrit" className="object-cover" />
+                <AvatarFallback className="bg-retro-dark text-retro-pink text-xl">TA</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+          
+          <div className="animate-fade-in flex-1">
             <div className="glitch-container mb-2">
               <p className="text-retro-pink font-medium">Hello, I'm</p>
             </div>
