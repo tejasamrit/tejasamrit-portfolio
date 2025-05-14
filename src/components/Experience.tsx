@@ -38,8 +38,7 @@ const Experience = () => {
       description: [
         "Develop and maintain front-end features",
         "Work closely with UI/UX designers",
-        "Participate in code reviews",
-        "Contributed to RESTful API development with Node.js and Express"
+        "Participate in code reviews"
       ]
     },
     {
